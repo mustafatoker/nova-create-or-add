@@ -1,6 +1,6 @@
 <?php
 
-namespace MustafatTOKER\NovaCreateOrAdd\Traits;
+namespace MustafaTOKER\NovaCreateOrAdd\Traits;
 
 use Laravel\Nova\Nova;
 use Illuminate\Database\Eloquent\Model;
