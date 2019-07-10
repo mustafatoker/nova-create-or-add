@@ -17,7 +17,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MustafaToker\\NovaCreateOrAdd\\FieldServiceProvider"
+                "MustafaTOKER\\NovaCreateOrAdd\\FieldServiceProvider"
             ]
         }
     },
