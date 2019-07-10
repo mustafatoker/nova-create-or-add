@@ -13,7 +13,7 @@
                 searchBy='display'
                 class="mb-3"
                 :singular-label="field.singularLabel"
-                @input="$emit('input',$event)"
+                @input="performSearch"
                 v-on:show-form="toggleForm"
             >
                 <div slot="default" v-if="selectedResource" class="flex items-center">
