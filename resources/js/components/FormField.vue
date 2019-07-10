@@ -259,6 +259,12 @@ export default {
         }
     },
 
+    watch: {
+        selectedResource(value) {
+            this.shouldShowForm = false;
+        }
+    },
+
     computed: {
         /**
          * Determine if we are editing and existing resource

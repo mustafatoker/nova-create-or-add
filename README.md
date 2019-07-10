@@ -34,6 +34,7 @@ NovaCreateOrAdd::make('Manufacturer')
 - [Alex Bowers](https://github.com/alexbowers)
 - [Mustafa TOKER](https://github.com/mustafatoker)
 - [Burak Tekin](https://github.com/tekinburak)
+- Mustafa Demir
 
 ## License
 

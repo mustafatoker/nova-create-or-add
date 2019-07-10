@@ -28231,6 +28231,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
 
+    watch: {
+        selectedResource: function selectedResource(value) {
+            this.shouldShowForm = false;
+        }
+    },
+
     computed: {
         /**
          * Determine if we are editing and existing resource
@@ -40937,7 +40943,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.fields = [];
                                 resourceUri = _.kebabCase(this.field.resourceName);
                                 _context2.next = 4;
-                                return Nova.request().get('/nova-api/' + resourceUri + '/creation-fields');
+                                return Nova.request().get('/nova-api/nova-create-or-add/' + resourceUri + '/required-creation-fields');
 
                             case 4:
                                 _ref4 = _context2.sent;
