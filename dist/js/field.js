@@ -10444,7 +10444,7 @@ module.exports = g;
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.13';
+  var VERSION = '4.17.14';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
@@ -28036,6 +28036,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -28123,6 +28129,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 // came to create a resource directly and there's no parent resource,
                 // and the field is searchable we'll just load all of the resources
                 this.getAvailableResources();
+            }
+
+            if (this.isSearchable && this.shouldPrepopulate) {
+                if (this.field.prepopulate_query) {
+                    this.search = this.field.prepopulate_query;
+                }
+
+                this.getAvailableResources();
+                this.search = '';
             }
 
             this.determineIfSoftDeletes();
@@ -28238,6 +28253,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     computed: {
+        shouldPrepopulate: function shouldPrepopulate() {
+            return this.field.prepopulate || false;
+        },
+
         /**
          * Determine if we are editing and existing resource
          */
@@ -45472,16 +45491,19 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          !_vm.isSearchable || _vm.isLocked
+          !_vm.isSearchable || _vm.isLocked || _vm.isReadOnly
             ? _c(
-                "select",
+                "select-control",
                 {
                   staticClass: "form-control form-select mb-3 w-full",
                   class: { "border-danger": _vm.hasError },
                   attrs: {
                     "data-testid": _vm.field.resourceName + "-select",
                     dusk: _vm.field.attribute,
-                    disabled: _vm.isLocked
+                    disabled: _vm.isLocked,
+                    options: _vm.availableResources,
+                    selected: _vm.selectedResourceId,
+                    label: "display"
                   },
                   on: { change: _vm.selectResourceFromSelectControl }
                 },
@@ -45495,7 +45517,7 @@ var render = function() {
                         disabled: !_vm.field.nullable
                       }
                     },
-                    [_vm._v("\n                —\n            ")]
+                    [_vm._v("—")]
                   ),
                   _vm._v(" "),
                   _vm._l(_vm.availableResources, function(resource) {
