@@ -42,7 +42,7 @@
                 class="btn btn-default btn-secondary outline-none search-input-input w-full px-2 py-1.5 text-sm leading-normal bg-white rounded"
                 @click="createNew"
                 >
-                Create New {{ singularLabel }}
+                    {{ __('Create New') }} {{ singularLabel }}
                 </button>
             </div>
 
@@ -118,6 +118,7 @@ export default {
     },
 
     data: () => ({
+        string: 'Create New %s',
         show: false,
         search: '',
         selected: 0,
