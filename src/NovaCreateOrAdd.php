@@ -4,6 +4,7 @@ namespace MustafaTOKER\NovaCreateOrAdd;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Laravel\Nova\Contracts\RelatableField;
 use Laravel\Nova\Fields\Field;
 use Laravel\Nova\TrashedStatus;
 use Laravel\Nova\Rules\Relatable;
@@ -15,7 +16,7 @@ use Laravel\Nova\Http\Requests\ResourceIndexRequest;
 use Laravel\Nova\Fields\FormatsRelatableDisplayValues;
 use MustafaTOKER\NovaCreateOrAdd\Traits\HasChildren;
 
-class NovaCreateOrAdd extends Field
+class NovaCreateOrAdd extends Field implements RelatableField
 {
     use FormatsRelatableDisplayValues;
     use ResolvesReverseRelation;
