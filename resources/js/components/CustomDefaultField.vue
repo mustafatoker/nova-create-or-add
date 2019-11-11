@@ -4,6 +4,9 @@
             <slot>
                 <form-label :for="field.name" :class="{'mb-2': field.helpText && showHelpText }">
                     {{ fieldLabel }}
+                    <span v-if="field.required" class="text-danger text-sm">{{
+                       __('*')
+                   }}</span>
                 </form-label>
             </slot>
         </div>
